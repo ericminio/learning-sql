@@ -1,8 +1,3 @@
-# sql-execution-plan
+[![Build Status](https://travis-ci.org/ericminio/sql-execution-plan.svg?branch=master)](https://travis-ci.org/ericminio/sql-execution-plan)
 
-```
-T1: docker-compose up sqlserver
-T2: docker-compose exec sqlserver bash
-T2#: ./create-database.sh
-T2*: ./support/run.sh ./demo
-```
+Study file [.travis.yml](.travis.yml)

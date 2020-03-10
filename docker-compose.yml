@@ -12,6 +12,4 @@ services:
       MSSQL_SA_PASSWORD: Forever21!
       ACCEPT_EULA: Y
     volumes:
-      - ./sqlserver:/usr/local/src
-
-  
+      - ./sqlserver:/usr/local/src  
