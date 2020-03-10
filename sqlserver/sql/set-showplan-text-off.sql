@@ -1,4 +1,0 @@
-USE exploration
-GO
-SET SHOWPLAN_TEXT OFF
-GO
