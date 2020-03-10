@@ -4,14 +4,14 @@ services:
 
   sqlserver:
     build: sqlserver
-    image: sqlserver:ready
-    container_name: sqlserver
+    image: sqlserver:studyexecutionplan
+    container_name: sqlserver-studyexecutionplan
     ports:
-      - "1455:1433"
+      - "1477:1433"
     environment:
       MSSQL_SA_PASSWORD: Forever21!
       ACCEPT_EULA: Y
     volumes:
-      - sqlserver/scripts:/usr/local/src
+      - ./sqlserver:/usr/local/src
 
   
