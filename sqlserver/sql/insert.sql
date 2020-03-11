@@ -1,6 +1,7 @@
-USE exploration
-GO
 SET NOCOUNT ON
+GO
+
+USE exploration
 GO
 delete PRODUCT
 GO
