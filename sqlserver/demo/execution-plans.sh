@@ -21,3 +21,14 @@ function test_index_results_in_index_seek {
 
     assertequals "$strategy" "Index Seek"
 }
+
+function test_bad_index_results_in_table_scan {
+    : > ./demo/actual-with-bad-index
+    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P Forever21! -d exploration -i ./sql/create-table-with-bad-index.sql
+    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P Forever21! -d exploration -i ./sql/insert.sql    
+    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P Forever21! -d exploration -i ./sql/select-for-plan.sql > ./demo/actual-with-bad-index
+
+    strategy=`grep "|--" ./demo/actual-with-bad-index | cut -d"(" -f1 | cut -d"-" -f3`
+
+    assertequals "$strategy" "Table Scan"
+}

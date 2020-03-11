@@ -7,9 +7,9 @@ before_script:
     - sleep 5
     - chmod +x ./sqlserver/support/wait.sh
     - chmod +x ./sqlserver/support/create-database.sh
-    - chmod +x ./sqlserver/support/run.sh
+    - chmod +x ./sqlserver/support/test.sh
     - docker-compose exec sqlserver ./support/wait.sh
     - docker-compose exec sqlserver ./support/create-database.sh
     - sleep 3
 script:
-    - docker-compose exec sqlserver ./support/run.sh ./demo
+    - docker-compose exec sqlserver ./support/test.sh ./demo
