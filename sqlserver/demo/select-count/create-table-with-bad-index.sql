@@ -7,11 +7,12 @@ GO
 CREATE TABLE PRODUCT (
     ID uniqueidentifier NOT NULL DEFAULT (newid()),
     CREATION datetime NOT NULL DEFAULT (getdate()),
-    FIELD varchar(200)
+    AREA varchar(15),
+    LABEL varchar(15)
 )
 GO
 
-CREATE INDEX INDEX_PRODUCT_DATE on PRODUCT (
+CREATE INDEX INDEX_WE_NEED on PRODUCT (
     CREATION,
-    FIELD    
+    LABEL
 )
