@@ -1,25 +1,22 @@
 #!/bin/bash
 
 source ./support/execute.sh
+source ./support/strategy.sh
 
 function test_index_needs_to_contain_all_the_selected_columns {
-    : > ./demo/select-count/plan-with-index
     execute ./demo/select-count/create-table.sql
     execute ./demo/select-count/insert.sql    
-    execute ./demo/select-count/select-for-plan.sql > ./demo/select-count/plan-with-index
-    
-    strategy=`grep "|--" ./demo/select-count/plan-with-index | cut -d"(" -f1 | cut -d"-" -f3 | tail -1`
+    execute ./demo/select-count/select-for-plan.sql > ./demo/select-count/plan-with-index    
+    actual=`strategy ./demo/select-count/plan-with-index`
 
-    assertequals "$strategy" "Index Seek"
+    assertequals "$actual" "Index Seek"
 }
 
 function test_missing_columns_will_result_in_table_scan {
-    : > ./demo/select-count/plan-with-bad-index
     execute ./demo/select-count/create-table-with-bad-index.sql
     execute ./demo/select-count/insert.sql    
     execute ./demo/select-count/select-for-plan.sql > ./demo/select-count/plan-with-bad-index
-    
-    strategy=`grep "|--" ./demo/select-count/plan-with-bad-index | cut -d"(" -f1 | cut -d"-" -f3 | tail -1`
+    actual=`strategy ./demo/select-count/plan-with-bad-index`
 
-    assertequals "$strategy" "Table Scan"
+    assertequals "$actual" "Table Scan"
 }
