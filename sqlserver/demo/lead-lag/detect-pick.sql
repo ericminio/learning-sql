@@ -5,7 +5,6 @@ declare @threshold int = 15
 
 select 
     NAME
-    , VALUE
 from (    
     select 
         NAME
