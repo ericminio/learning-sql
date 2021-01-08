@@ -2,7 +2,7 @@
 
 source ./support/dir.sh
 source ./support/execute.sh
-source ./demo/execution-plan/strategy.sh
+source ./demos/execution-plan/strategy.sh
 
 function test_no_index_results_in_table_scan {
     DIR=$(current_dir ${BASH_SOURCE[0]})
