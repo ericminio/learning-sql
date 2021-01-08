@@ -4,8 +4,8 @@ services:
 
   sqlserver:
     build: sqlserver
-    image: sqlserver:studyexecutionplan
-    container_name: sqlserver-studyexecutionplan
+    image: learning:sqlserver
+    container_name: learning-sqlserver
     ports:
       - "1477:1433"
     environment:
