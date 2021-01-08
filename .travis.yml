@@ -4,11 +4,9 @@ services:
     - docker
 before_script:
     - docker-compose up -d sqlserver    
-    - sleep 5
     - chmod +x ./support/wait.sh
     - chmod +x ./support/create-database.sh
     - docker-compose exec sqlserver ./support/wait.sh
     - docker-compose exec sqlserver ./support/create-database.sh
-    - sleep 3
 script:
     - docker-compose exec sqlserver ./testing/share/testing/lib/test.sh ./demos
