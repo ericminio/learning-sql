@@ -13,7 +13,7 @@ from (
         , abs(VALUE - LAG(VALUE, 1, VALUE) over (order by CREATION)) as previous 
         , abs(VALUE - LEAD(VALUE, 1, VALUE) over (order by CREATION)) as next
     from PRODUCT
-) toto
+) deltas
 where 
     previous > @threshold
     and next > @threshold
