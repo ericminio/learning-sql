@@ -1,0 +1,19 @@
+USE exploration
+GO
+
+declare @threshold int = 15
+
+select 
+    NAME
+    , VALUE
+from (    
+    select 
+        NAME
+        , VALUE
+        , abs(VALUE - LAG(VALUE, 1, VALUE) over (order by CREATION)) as previous 
+        , abs(VALUE - LEAD(VALUE, 1, VALUE) over (order by CREATION)) as next
+    from PRODUCT
+) toto
+where 
+    previous > @threshold
+    and next > @threshold
