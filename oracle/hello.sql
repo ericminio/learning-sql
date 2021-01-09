@@ -1,0 +1,1 @@
+select 1 as ORACLE_IS_READY from dual;
