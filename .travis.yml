@@ -4,5 +4,7 @@ services:
     - docker
 before_script:
     - docker-compose up -d sqlserver
+    - docker-compose up -d oracle
 script:
     - docker-compose exec sqlserver ./testing/share/testing/lib/test.sh ./sqlserver
+    - docker-compose exec oracle ./testing/share/testing/lib/test.sh ./oracle
