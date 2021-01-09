@@ -4,9 +4,9 @@ services:
     - docker
 before_script:
     - docker-compose up -d sqlserver    
-    - chmod +x ./support/wait.sh
+    - chmod +x ./support/wait-for-sqlserver.sh
     - chmod +x ./support/create-database.sh
-    - docker-compose exec sqlserver ./support/wait.sh
+    - docker-compose exec sqlserver ./support/wait-for-sqlserver.sh
     - docker-compose exec sqlserver ./support/create-database.sh
 script:
     - docker-compose exec sqlserver ./testing/share/testing/lib/test.sh ./demos
