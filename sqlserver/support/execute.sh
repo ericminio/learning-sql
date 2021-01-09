@@ -6,5 +6,4 @@ function execute {
     else
         /opt/mssql-tools/bin/sqlcmd -m 1 -S localhost -U SA -P Forever21! -d exploration -Q "$1"
     fi
-    
 }

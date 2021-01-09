@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source ./support/dir.sh
-source ./support/execute.sh
-source ./demos/execution-plan/strategy.sh
+source ./sqlserver/support/dir.sh
+source ./sqlserver/support/execute.sh
+source ./sqlserver/execution-plan/strategy.sh
 
 function test_index_needs_to_contain_all_the_selected_columns {
     DIR=$(current_dir ${BASH_SOURCE[0]})
