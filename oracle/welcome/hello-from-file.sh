@@ -4,7 +4,7 @@ source ./oracle/support/dir.sh
 
 function executeFile {
     export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
-    /u01/app/oracle/product/11.2.0/xe/bin/sqlplus sys/oracle@localhost as SYSDBA  < $1
+    /u01/app/oracle/product/11.2.0/xe/bin/sqlplus -s SYSTEM/oracle@localhost  < $1
 }
 
 function test_can_use_sqlplus_with_file {
