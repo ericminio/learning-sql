@@ -16,5 +16,5 @@ function test_can_use_sqlplus_with_file {
     grep "Hello" ${DIR}/run.output | wc -l
     actual=`grep "Hello" ${DIR}/run.output | wc -l`
 
-    assertequals "$actual" "0"
+    assertequals "$actual" "1"
 }
