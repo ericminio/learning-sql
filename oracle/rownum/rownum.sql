@@ -1,12 +1,4 @@
-DECLARE
-    c int;
-BEGIN
-    select count(*) into c from user_tables where table_name = 'EVENT';
-    if c = 1 then
-        execute immediate 'drop table EVENT';
-    end if;
-END;
-/   
+drop table event;
 create table event(
     type varchar2(10) not null,
     label varchar2(50) not null
