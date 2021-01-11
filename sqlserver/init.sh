@@ -1,7 +1,14 @@
 #!/bin/bash
 
-source ./sqlserver/support/dir.sh
-source ./sqlserver/support/execute.sh
+source ./support/dir.sh
+
+function executeFile {
+    /opt/mssql-tools/bin/sqlcmd -m 1 -S localhost -U SA -P Forever21! -d exploration -i $1
+}
+
+function execute {
+    /opt/mssql-tools/bin/sqlcmd -m 1 -S localhost -U SA -P Forever21! -d exploration -Q "$1"
+}
 
 DIR=$(current_dir ${BASH_SOURCE[0]})
 

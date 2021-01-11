@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./oracle/support/dir.sh
+source ./support/dir.sh
 export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
 
 function sqlplus {
