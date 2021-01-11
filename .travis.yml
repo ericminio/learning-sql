@@ -7,7 +7,7 @@ before_script:
     - docker-compose up -d oracle
     - docker-compose up -d postgresql
 script:
-    - docker-compose exec sqlserver ./testing/share/testing/lib/test.sh ./sqlserver
-    - docker-compose exec oracle ./testing/share/testing/lib/test.sh ./oracle
-    - docker-compose exec postgresql ./testing/share/testing/lib/test.sh ./postgresql
+    - docker-compose exec sqlserver ./support/testing/share/testing/lib/test.sh ./sqlserver
+    - docker-compose exec oracle ./support/testing/share/testing/lib/test.sh ./oracle
+    - docker-compose exec postgresql ./support/testing/share/testing/lib/test.sh ./postgresql
     
