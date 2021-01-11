@@ -9,5 +9,3 @@ insert into event(type, label) values('MATCH', 'new month');
 insert into event(type, label) values('MATCH', 'new day');
 insert into event(type, label) values('MATCH', 'new hour');
 insert into event(type, label) values('MATCH', 'new minute');
-
-select * from event where rownum <= 3;
