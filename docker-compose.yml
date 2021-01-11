@@ -25,3 +25,17 @@ services:
       ACCEPT_EULA: Y
     volumes:
       - .:/usr/local/src  
+
+  postgresql:
+    build: postgresql
+    image: learning:postgresql
+    container_name: learning-postgresql
+    ports:
+      - 2345:5432
+    environment:
+      - POSTGRES_DB=exploration
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=dev
+    volumes:
+      - .:/usr/local/src  
+
