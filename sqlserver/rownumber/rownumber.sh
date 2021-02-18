@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function test_offers_an_alternative_to_top {
+function test_rownumber_offers_an_alternative_to_top {
     DIR=$(current_dir ${BASH_SOURCE[0]})
     
     executeFile ${DIR}/data.sql
@@ -10,7 +10,7 @@ function test_offers_an_alternative_to_top {
     assertequals "$actual" "(1 rows affected)"
 }
 
-function test_can_lead_to_bugs_hard_to_detect {
+function test_rownumber_can_lead_to_bugs_hard_to_detect {
     DIR=$(current_dir ${BASH_SOURCE[0]})
     
     executeFile ${DIR}/data.sql
