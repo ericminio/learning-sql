@@ -3,11 +3,14 @@ GO
 SET NOCOUNT ON
 GO
 	
-DROP TABLE IF EXISTS PRODUCT
+IF EXISTS (select 1 from INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'PRODUCT')
+	DROP TABLE PRODUCT
+GO
 CREATE TABLE PRODUCT (
     ID uniqueidentifier NOT NULL DEFAULT (newid()),
     DESCRIPTION varchar(40)
 )
+GO
 
 insert into PRODUCT (DESCRIPTION) values ('{ "name":"keyboard", "price":30 }')
 insert into PRODUCT (DESCRIPTION) values ('{ "name":"mouse", "price":15 }')
