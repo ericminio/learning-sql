@@ -38,4 +38,6 @@ begin
     insert into @ids (id) select * from payments()
 end    
 
-select count(*) as COUNT from PAYMENT_BATCH where STATUS = "SUCCESS"
+select  count(*) as COUNT 
+from    PAYMENT_BATCH 
+where   STATUS = "SUCCESS" and SESSION = 2

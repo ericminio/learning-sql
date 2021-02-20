@@ -6,6 +6,6 @@ function test_select_top_can_help_with_custom_pagination {
     executeFile ${DIR}/select-top.sql > ${DIR}/run.output
     actual=`cat ${DIR}/run.output | sed -n '3p' | xargs`
 
-    assertequals "$actual" "5"
+    assertequals "$actual" "4"
 }
 
