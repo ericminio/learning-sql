@@ -8,9 +8,8 @@ create type EXTERNAL_PERSON as object (
     data    int
 )
 /
-
 create table EXTERNAL_PERSON_TABLE of EXTERNAL_PERSON;
+
 insert into EXTERNAL_PERSON_TABLE values ('Bob', 111);
 insert into EXTERNAL_PERSON_TABLE values ('Alice', 222);
-
 select sum(data) as TOTAL from EXTERNAL_PERSON_TABLE;

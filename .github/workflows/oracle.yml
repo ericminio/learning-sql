@@ -1,0 +1,30 @@
+name: Oracle tests
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  info:
+    name: about docker
+    runs-on: ubuntu-latest
+    steps:
+    - name: versions
+      run: |
+        docker version
+        docker-compose version
+  tests:
+    needs: info
+    name: run tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build images
+      run: docker-compose build oracle
+    - name: Start
+      run: docker-compose up -d oracle
+    - name: Run tests
+      run: |
+        docker-compose exec -T oracle ./support/testing/share/testing/lib/test.sh ./oracle
