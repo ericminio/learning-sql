@@ -1,3 +1,3 @@
-[![Build Status](https://www.travis-ci.com/ericminio/learning-sql.svg?branch=master)](https://www.travis-ci.com/ericminio/learning-sql)
+[![Build Status](https://github.com/ericminio/learning-sql/actions/workflows/oracle.yml/badge.svg)](https://github.com/ericminio/learning-sql/actions)
 
-Study file [.travis.yml](.travis.yml)
+Study [actions](.github/workflows)
