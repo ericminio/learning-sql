@@ -23,6 +23,7 @@ services:
     environment:
       MSSQL_SA_PASSWORD: Forever21!
       ACCEPT_EULA: Y
+      CONNECTION: system/oracle@localhost
     volumes:
       - .:/usr/local/src  
 

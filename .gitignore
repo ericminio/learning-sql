@@ -2,3 +2,5 @@ actual*
 *.log
 plan*
 *.output
+output
+work
