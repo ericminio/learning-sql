@@ -3,17 +3,16 @@ create table events(
         id varchar(1), 
         user varchar(10)
 );
-insert into events(id, user) values('1', 'A');
-insert into events(id, user) values('1', 'B');
+insert into events(id, user) values('z', 'A');
 
-insert into events(id, user) values('2', 'A');
-insert into events(id, user) values('2', 'B');
-insert into events(id, user) values('2', 'C');
-insert into events(id, user) values('2', 'D');
+insert into events(id, user) values('y', 'A');
+insert into events(id, user) values('y', 'B');
+insert into events(id, user) values('y', 'C');
+insert into events(id, user) values('y', 'D');
 
-insert into events(id, user) values('3', 'A');
-insert into events(id, user) values('3', 'B');
-insert into events(id, user) values('3', 'C');
+insert into events(id, user) values('w', 'A');
+insert into events(id, user) values('w', 'B');
+insert into events(id, user) values('w', 'C');
 
 select count(id) from 
 (
