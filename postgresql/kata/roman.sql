@@ -29,19 +29,28 @@ $$  LANGUAGE plpgsql;
 create or replace function roman(incoming varchar) 
 returns integer as $$
 declare
-    value integer;
+    decimal_value integer;
+    candidate varchar;
+    remaining varchar;
 begin
-    if incoming = 'I' then 
-        value := 1;
-    else
-        value := 2;
-    end if;
-    return value;
+    decimal_value := 0;
+    remaining := incoming;
+    
+    candidate := 'I'; 
+    while length(remaining) > 0 loop
+        if candidate = substring(remaining from 1 for length(candidate)) then 
+            decimal_value := decimal_value + 1;
+        end if;
+
+        remaining = substring(remaining from 1 + length(candidate));
+    end loop;
+
+    return decimal_value;
 end;
 $$  LANGUAGE plpgsql;
 
 update expectations set actual = roman(incoming);
-update expectations set result = (select case when expected = actual then '.' else 'F' end as result);
+update expectations set result = (select case when expected = actual then 'OK' else 'FAILED' end as result);
 select incoming, expected, actual, result from expectations order by id;
 
 

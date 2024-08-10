@@ -5,7 +5,7 @@ function test_roman_kata {
 
     executeFile $DIR/roman.sql > $DIR/run.output
     cat $DIR/run.output
-    failures=`grep "F" ${DIR}/run.output | wc -l `
+    failures=`grep "FAILED" ${DIR}/run.output | wc -l `
     
     assertequals "$failures failure(s)" "0 failure(s)"
 }
