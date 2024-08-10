@@ -8,8 +8,14 @@ create table expectations(
 );
 
 insert into expectations(incoming, expected) values('I', 1);
-insert into expectations(incoming, expected) values('II', 2);
+create or replace function roman(incoming varchar) 
+returns integer as $$
+begin
+    return 1;
+end;
+$$  LANGUAGE plpgsql;
 
+insert into expectations(incoming, expected) values('II', 2);
 create or replace function roman(incoming varchar) 
 returns integer as $$
 begin
@@ -18,6 +24,19 @@ begin
     else
         return 2;
     end if;
+end;
+$$  LANGUAGE plpgsql;
+create or replace function roman(incoming varchar) 
+returns integer as $$
+declare
+    value integer;
+begin
+    if incoming = 'I' then 
+        value := 1;
+    else
+        value := 2;
+    end if;
+    return value;
 end;
 $$  LANGUAGE plpgsql;
 
