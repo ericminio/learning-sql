@@ -6,26 +6,25 @@ on:
       - master
 
 jobs:
-
   info:
     name: about docker
     runs-on: ubuntu-latest
     steps:
-    - name: versions
-      run: |
-        docker version
-        docker-compose version
+      - name: versions
+        run: |
+          docker version
+          docker compose version
   tests:
     needs: info
     name: run tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Build images
-      run: docker-compose build sqlserver
-    - name: Start
-      run: docker-compose up -d sqlserver
-    - name: Run tests
-      run: |
-        git submodule update --init --recursive
-        docker-compose exec -T sqlserver ./support/testing/share/testing/lib/test.sh ./sqlserver
+      - uses: actions/checkout@v2
+      - name: Build images
+        run: docker compose build sqlserver
+      - name: Start
+        run: docker compose up -d sqlserver
+      - name: Run tests
+        run: |
+          git submodule update --init --recursive
+          docker compose exec -T sqlserver ./support/testing/share/testing/lib/test.sh ./sqlserver
