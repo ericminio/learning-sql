@@ -1,4 +1,5 @@
 #!/bin/bash
+# See https://github.com/ericminio/learning-bash
 
 pass_color="\033[0;102;30m"
 fail_color="\033[0;101;30m"
