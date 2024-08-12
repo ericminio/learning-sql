@@ -1,3 +1,0 @@
-[submodule "testing"]
-	path = support/testing
-	url = https://github.com/ericminio/learning-bash.git

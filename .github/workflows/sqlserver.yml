@@ -26,5 +26,4 @@ jobs:
         run: docker compose up -d sqlserver
       - name: Run tests
         run: |
-          git submodule update --init --recursive
-          docker compose exec -T sqlserver ./support/testing/share/testing/lib/test.sh ./sqlserver
+          docker compose exec -T sqlserver ./support/test.sh ./sqlserver

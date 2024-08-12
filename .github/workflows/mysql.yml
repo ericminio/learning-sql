@@ -27,4 +27,4 @@ jobs:
       - name: Run tests
         run: |
           git submodule update --init --recursive
-          docker compose exec -T mysql ./support/testing/share/testing/lib/test.sh ./mysql
+          docker compose exec -T mysql ./support/test.sh ./mysql

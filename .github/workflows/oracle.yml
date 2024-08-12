@@ -26,5 +26,4 @@ jobs:
         run: docker compose up -d oracle
       - name: Run tests
         run: |
-          git submodule update --init --recursive
-          docker compose exec -T oracle ./support/testing/share/testing/lib/test.sh ./oracle
+          docker compose exec -T oracle ./support/test.sh ./oracle

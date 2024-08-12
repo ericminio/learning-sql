@@ -4,7 +4,7 @@ create table expectations(
     incoming varchar,
     expected integer,
     actual integer,
-    result varchar
+    test varchar
 );
 
 insert into expectations(incoming, expected) values('I', 1);
@@ -166,8 +166,8 @@ end;
 $$  LANGUAGE plpgsql;
 
 update expectations set actual = roman(incoming);
-update expectations set result = (select case when expected = actual then 'OK' else 'FAILED' end as result);
-select incoming, expected, actual, result from expectations order by id;
+update expectations set test = (select case when expected = actual then '.' else 'FAIL' end);
+select incoming, expected, actual, test from expectations order by id;
 
 
 
