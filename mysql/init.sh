@@ -16,5 +16,5 @@ function wait_for_database {
     grep yes $DIR/init.output | wc -l
 }
 
-waiting database wait_for_database
+waiting mysql wait_for_database
 

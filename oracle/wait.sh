@@ -2,14 +2,12 @@
 
 source ./oracle/init.sh
 source ./support/dir.sh
+source ./support/waiting.sh
 
-DIR=$(current_dir ${BASH_SOURCE[0]})
-ready=0
-while [ "$ready" != "1" ]
-do
-    echo "waiting for Oracle";
+function wait_for_oracle {
+    local DIR=$(current_dir ${BASH_SOURCE[0]})
     execute "select 'yes' as ORACLE_IS_READY from dual;" > $DIR/init.output
-    ready=`grep yes $DIR/init.output | wc -l`
-    sleep 1;
-done;
-echo "Oracle is ready";
+    grep yes $DIR/init.output | wc -l
+}
+
+waiting oracle wait_for_oracle
