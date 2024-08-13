@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function test_roman_kata {
+function test_roman_to_numeral {
     DIR=$(current_dir ${BASH_SOURCE[0]})
 
     executeFile $DIR/roman.sql > $DIR/run.output

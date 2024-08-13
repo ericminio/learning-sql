@@ -1,5 +1,5 @@
-drop table if exists expectations;
-create table expectations(
+drop table if exists exploration;
+create table exploration(
     id serial primary key,
     incoming varchar,
     expected integer,
@@ -7,7 +7,7 @@ create table expectations(
     test varchar
 );
 
-insert into expectations(incoming, expected) values('I', 1);
+insert into exploration(incoming, expected) values('I', 1);
 create or replace function roman(incoming varchar) 
 returns integer as $$
 begin
@@ -15,7 +15,7 @@ begin
 end;
 $$  LANGUAGE plpgsql;
 
-insert into expectations(incoming, expected) values('II', 2);
+insert into exploration(incoming, expected) values('II', 2);
 create or replace function roman(incoming varchar) 
 returns integer as $$
 begin
@@ -49,7 +49,7 @@ begin
 end;
 $$  LANGUAGE plpgsql;
 
-insert into expectations(incoming, expected) values('IV', 4);
+insert into exploration(incoming, expected) values('IV', 4);
 create or replace function roman(incoming varchar) 
 returns integer as $$
 declare
@@ -112,7 +112,7 @@ begin
 end;
 $$  LANGUAGE plpgsql;
 
-insert into expectations(incoming, expected) values('CXXIX', 129);
+insert into exploration(incoming, expected) values('CXXIX', 129);
 delete from dico;
 insert into dico(translation_priority, roman_value, decimal_value) values
 (1, 'C', 100),
@@ -122,7 +122,7 @@ insert into dico(translation_priority, roman_value, decimal_value) values
 (5, 'I', 1)
 ;
 
-insert into expectations(incoming, expected) values('MCDXCII', 1492);
+insert into exploration(incoming, expected) values('MCDXCII', 1492);
 drop table if exists dico;
 create table dico(
     translation_priority serial primary key,
@@ -165,9 +165,9 @@ begin
 end;
 $$  LANGUAGE plpgsql;
 
-update expectations set actual = roman(incoming);
-update expectations set test = (select case when expected = actual then '.' else 'FAIL' end);
-select incoming, expected, actual, test from expectations order by id;
+update exploration set actual = roman(incoming);
+update exploration set test = (select case when expected = actual then '.' else 'FAIL' end);
+select incoming, expected, actual, test from exploration order by id;
 
 
 
