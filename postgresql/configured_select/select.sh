@@ -1,9 +1,12 @@
 #!/bin/bash
 
-function test_only_ready {
-    DIR=$(current_dir ${BASH_SOURCE[0]})
-    executeFile $DIR/go.sql > $DIR/run.output    
-    local output=`cat $DIR/run.output | head -n 3 | tail -n 1`
+source ./support/utils.sh
 
-    assertequals $output 2
+function test_works_with_hardcoded_product_id {
+    DIR=$(current_dir ${BASH_SOURCE[0]})
+    executeFile $DIR/data.sql
+    executeFile $DIR/select-with-magic-number.sql > $DIR/run.output    
+    local last=`cat $DIR/run.output | head -n 3 | tail -n 1 | trim`
+
+    assertequals "$last" "2024-08-03"
 }
