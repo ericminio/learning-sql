@@ -8,8 +8,8 @@ function test_roman_to_numeral_kata {
     executeFile $DIR/schema.sql
     executeFile $DIR/kata.sql
     executeFile $DIR/report.sql > $DIR/run.output
-    cat $DIR/run.output
+    cat $DIR/run.output    
+    count=`grep "FAIL" ${DIR}/run.output | wc -l`
     
-    count=`grep "FAIL" ${DIR}/run.output | wc -l `    
     assertequals "$count failure(s)" "0 failure(s)"
 }
