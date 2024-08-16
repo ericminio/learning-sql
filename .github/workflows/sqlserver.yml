@@ -26,4 +26,4 @@ jobs:
         run: docker compose up -d sqlserver
       - name: Run tests
         run: |
-          docker compose exec -T sqlserver ./support/test.sh ./sqlserver
+          docker compose exec -T sqlserver ./support/yop-testing-bash/dist/test.sh ./sqlserver

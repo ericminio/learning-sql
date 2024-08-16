@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source ./postgresql/init.sh
-source ./support/utils.sh
+source ./support/yop-testing-bash/dist/utils.sh
 
 DIR=$(current_dir ${BASH_SOURCE[0]})
 

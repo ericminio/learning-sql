@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source ./support/dir.sh
-source ./support/waiting.sh
+source ./support/yop-testing-bash/dist/dir.sh
+source ./support/yop-testing-bash/dist/waiting.sh
 
 function executeFile {
     MYSQL_PWD=dev mysql --table --user=dev --database=exploration < $1

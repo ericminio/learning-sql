@@ -26,4 +26,4 @@ jobs:
         run: docker compose up -d postgresql
       - name: Run tests
         run: |
-          docker compose exec -T postgresql ./support/test.sh ./postgresql
+          docker compose exec -T postgresql support/yop-testing-bash/dist/test.sh ./postgresql

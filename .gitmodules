@@ -1,0 +1,3 @@
+[submodule "support/yop-testing-bash"]
+	path = support/yop-testing-bash
+	url = https://github.com/ericminio/yop-testing-bash.git

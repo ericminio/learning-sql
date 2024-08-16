@@ -26,4 +26,4 @@ jobs:
         run: docker compose up -d mysql
       - name: Run tests
         run: |
-          docker compose exec -T mysql ./support/test.sh ./mysql
+          docker compose exec -T mysql ./support/yop-testing-bash/dist/test.sh ./mysql

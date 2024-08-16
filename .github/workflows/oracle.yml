@@ -26,4 +26,4 @@ jobs:
         run: docker compose up -d oracle
       - name: Run tests
         run: |
-          docker compose exec -T oracle ./support/test.sh ./oracle
+          docker compose exec -T oracle ./support/yop-testing-bash/dist/test.sh ./oracle
