@@ -24,6 +24,8 @@ jobs:
         run: docker compose build postgresql
       - name: Start
         run: docker compose up -d postgresql
+      - name: submodule
+        run: git submodule update --init
       - name: Run tests
         run: |
           docker compose exec -T postgresql support/yop-testing-bash/dist/test.sh ./postgresql

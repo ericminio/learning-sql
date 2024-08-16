@@ -24,6 +24,8 @@ jobs:
         run: docker compose build mysql
       - name: Start
         run: docker compose up -d mysql
+      - name: submodule
+        run: git submodule update --init
       - name: Run tests
         run: |
           docker compose exec -T mysql ./support/yop-testing-bash/dist/test.sh ./mysql

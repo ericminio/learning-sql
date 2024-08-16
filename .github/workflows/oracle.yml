@@ -24,6 +24,8 @@ jobs:
         run: docker compose build oracle
       - name: Start
         run: docker compose up -d oracle
+      - name: submodule
+        run: git submodule update --init
       - name: Run tests
         run: |
           docker compose exec -T oracle ./support/yop-testing-bash/dist/test.sh ./oracle
