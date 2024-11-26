@@ -1,0 +1,7 @@
+id,external_id,flag
+A,AA,TRUE
+B,AA,TRUE
+C,AA,TRUE
+D,AA,FALSE
+X,BB,TRUE
+A,BB,TRUE

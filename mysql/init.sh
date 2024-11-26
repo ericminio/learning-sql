@@ -4,10 +4,13 @@ source ./support/yop-testing-bash/dist/dir.sh
 source ./support/yop-testing-bash/dist/waiting.sh
 
 function executeFile {
-    MYSQL_PWD=dev mysql --table --user=dev --database=exploration < $1
+    MYSQL_PWD=dev mysql --local-infile=1 --table --user=dev --database=exploration < $1
 }
 function execute {
-    MYSQL_PWD=dev mysql --table --user=dev --database=exploration --execute "$1"
+    MYSQL_PWD=dev mysql --local-infile=1 --table --user=dev --database=exploration --execute "$1"
+}
+function execute_as_root {
+    MYSQL_PWD=dev mysql --table --user=root --database=exploration --execute "$1"
 }
 
 function wait_for_database {
@@ -18,3 +21,4 @@ function wait_for_database {
 
 waiting mysql wait_for_database
 
+execute_as_root "SET GLOBAL local_infile=1" > $DIR/init.output

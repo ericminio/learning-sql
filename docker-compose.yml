@@ -1,7 +1,6 @@
-version: '3.4'
+version: "3.4"
 
 services:
-
   sqlserver:
     build: sqlserver
     image: learning:sqlserver
@@ -12,7 +11,7 @@ services:
       MSSQL_SA_PASSWORD: Forever21!
       ACCEPT_EULA: Y
     volumes:
-      - .:/usr/local/src  
+      - .:/usr/local/src
 
   oracle:
     build: oracle
@@ -25,7 +24,7 @@ services:
       ACCEPT_EULA: Y
       CONNECTION: system/oracle@localhost
     volumes:
-      - .:/usr/local/src  
+      - .:/usr/local/src
 
   postgresql:
     build: postgresql
@@ -38,7 +37,7 @@ services:
       - POSTGRES_USER=dev
       - POSTGRES_PASSWORD=dev
     volumes:
-      - .:/usr/local/src  
+      - .:/usr/local/src
 
   mysql:
     build: mysql
@@ -52,5 +51,4 @@ services:
       - MYSQL_PASSWORD=dev
       - MYSQL_ROOT_PASSWORD=dev
     volumes:
-      - .:/usr/local/src  
-
+      - .:/usr/local/src
