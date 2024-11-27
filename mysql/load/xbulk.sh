@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./mysql/load/bulk.sh
+
 function extract_filename {
     echo "$1" | grep -o "[^/]*$" | grep -o "^[^.]*" 
 }
