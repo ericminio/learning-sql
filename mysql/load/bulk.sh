@@ -8,6 +8,7 @@ function bulk_copy {
                 infile '$FILE' 
                 into table $TABLE 
                 fields terminated by ',' 
+                optionally enclosed by '\"'
                 lines terminated by '\n' 
                 ignore 1 lines"
 }
