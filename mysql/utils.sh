@@ -19,7 +19,5 @@ function extract_query_result {
 }
 
 function wait_for_database {
-    local DIR=$(current_dir ${BASH_SOURCE[0]})
-    execute "select 'yes' DATABASE_IS_READY" > $DIR/init.output
-    grep yes $DIR/init.output | wc -l
+    execute "select 'yes' DATABASE_IS_READY" | grep yes | wc -l
 }
