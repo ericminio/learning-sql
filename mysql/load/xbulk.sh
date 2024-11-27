@@ -3,13 +3,17 @@
 source ./mysql/load/bulk.sh
 
 function extract_filename {
-    echo "$1" | grep -o "[^/]*$" | grep -o "^[^.]*" 
+    grep -o "[^/]*$" | grep -o "^[^.]*" 
+}
+
+function extract_fields {
+    sed 's/,/ varchar(100),/g' | sed 's/$/ varchar(100)/'
 }
 
 function xbulk {
     local FILE=$1
-    local TABLE=`extract_filename $FILE`
-    local FIELDS=`head -1 $FILE | sed 's/,/ varchar(100),/' | sed 's/$/ varchar(100)/'`
+    local TABLE=`echo $FILE | extract_filename`
+    local FIELDS=`head -1 $FILE | extract_fields`
     execute "
         drop table if exists $TABLE;
         create table $TABLE($FIELDS);"
