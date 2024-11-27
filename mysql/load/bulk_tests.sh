@@ -3,6 +3,10 @@
 source ./support/yop-testing-bash/dist/utils.sh
 source ./mysql/load/bulk.sh
 
+function extract_data {
+    tail -n +4 | sed '$d' | cut -d '|' -f 2,3 | sed 's/|//g' | oneliner | shrink | trim
+}
+
 function test_load_data_from_csv_with_headers {
     DIR=$(current_dir ${BASH_SOURCE[0]})
 
@@ -13,7 +17,7 @@ function test_load_data_from_csv_with_headers {
         select external_id, count(id) count
         from events
         group by external_id;" > $DIR/run.output
-    value=`cat ${DIR}/run.output | head -5 | tail -2 | cut -d '|' -f 2,3 | sed 's/|//g' | oneliner | shrink | trim`
+    value=`cat ${DIR}/run.output | extract_data`
 
     assertequals "$value" "AA 4 BB 2"
 }
@@ -30,7 +34,7 @@ function test_load_data_from_csv_resisting_comma_in_data {
             count(internal_key) as total_count
         from events
         group by external_key;" > $DIR/run.output
-    value=`cat ${DIR}/run.output | head -4 | tail -1 | cut -d '|' -f 2,3 | sed 's/|//g' | oneliner | shrink | trim`
+    value=`cat ${DIR}/run.output | extract_data`
 
     assertequals "$value" "AA, BB 2"
 }
