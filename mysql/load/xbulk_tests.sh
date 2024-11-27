@@ -1,5 +1,11 @@
 #!/bin/bash
 
+function test_xbulk_extract_filename_remove_extension {
+    value=`extract_filename "./mysql/load/xbulkone.csv"`
+
+    assertequals "$value" "xbulkone"
+}
+
 function test_xbulk_can_load_one_field {
     xbulk "./mysql/load/xbulkone.csv"
     value=`execute "select name from xbulkone" | extract_query_result`
