@@ -9,5 +9,5 @@ if [ -z "$FOLDER" ]; then
     exit 1
 fi
 
-./support/katas/run.sh $SERVICE $FOLDER
-fswatch -o $path -e "run.output" | xargs -n1 ./support/katas/run.sh $SERVICE $FOLDER
+./support/run.sh $SERVICE $FOLDER
+fswatch -o $path -e "run.output" | xargs -n1 ./support/run.sh $SERVICE $FOLDER
