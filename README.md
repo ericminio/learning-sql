@@ -5,4 +5,4 @@
 
 Study [actions](.github/workflows).
 
-Check out [kata watcher](./support/katas).
+Check out [watcher](./support/watch.sh).
