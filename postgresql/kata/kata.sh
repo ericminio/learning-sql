@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./postgresql/init.sh
+source ./postgresql/utils.sh
 
 function test_roman_to_numeral_kata {
     DIR=$(current_dir ${BASH_SOURCE[0]})
