@@ -26,6 +26,9 @@ jobs:
         run: docker compose up -d sqlserver
       - name: submodule
         run: git submodule update --init
+      - name: inspect
+        run: |
+          docker inspect `docker ps | grep learning-sqlserver | cut -d' ' -f 1`
       - name: Run tests
         run: |
           docker compose exec -T sqlserver ./support/yop-testing-bash/dist/test.sh ./sqlserver
