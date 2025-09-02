@@ -14,3 +14,7 @@ function execute {
 function wait_for_postgresql {
     execute "select 'yes' DATABASE_IS_READY" | grep yes | wc -l
 }
+
+function extract_query_result {
+    tail -n +3 | sed '$d' | sed 's/|//g' | oneliner | shrink | trim
+}
