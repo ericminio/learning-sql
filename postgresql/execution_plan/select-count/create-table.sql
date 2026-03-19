@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS PRODUCT;
+
+CREATE TABLE PRODUCT (
+    ID serial PRIMARY KEY,
+    CREATION timestamp NOT NULL DEFAULT now(),
+    AREA varchar(15),
+    LABEL varchar(15)
+);
+
+CREATE INDEX INDEX_WE_NEED on PRODUCT (
+    ID,
+    CREATION,
+    LABEL,
+    AREA
+);
