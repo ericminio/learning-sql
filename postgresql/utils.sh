@@ -10,7 +10,10 @@ function executeFile {
 function execute {
     psql exploration -U dev -q -c "$1"
 }
-function execute-read-replica {
+function execute_on_primary {
+    execute "$1"
+}
+function execute_on_standby {
     PGPASSWORD=dev psql -h postgres-read exploration -U dev -q -c "$1"
 }
 function wait_for_replication_done {
