@@ -25,7 +25,7 @@ services:
       - .:/usr/local/src
 
   postgresql:
-    build: postgresql
+    build: postgresql-primary
     image: learning:postgresql
     container_name: learning-postgresql
     ports:
@@ -34,6 +34,17 @@ services:
       - POSTGRES_DB=exploration
       - POSTGRES_USER=dev
       - POSTGRES_PASSWORD=dev
+    volumes:
+      - .:/usr/local/src
+
+  postgres-read:
+    build: postgresql-standby
+    image: learning:postgresql-standby
+    container_name: learning-postgres-read
+    depends_on:
+      - postgresql
+    ports:
+      - 2346:5432
     volumes:
       - .:/usr/local/src
 
